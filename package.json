@@ -1,6 +1,6 @@
 {
   "name": "angular-reclass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dynamically add/remove CSS classes based on element width",
   "main": "angular-reclass.js",
   "directories": {
