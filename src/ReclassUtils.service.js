@@ -12,6 +12,8 @@ function ReclassUtils($timeout) {
   var timeout;
   factory.debounce = debounce;
 
+  return factory;
+
   ////////////
 
   /**
