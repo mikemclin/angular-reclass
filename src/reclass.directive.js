@@ -22,7 +22,7 @@ function reclass($window, $timeout, ReclassConfig, ReclassUtils) {
     var timeout, elementWidth, currentClasses = [];
 
     scope.config = ReclassConfig;
-    scope.config.reclassDefault = sanitizeStatement(scope.config.reclassDefault);
+    scope.config.reclassDefault = normalizeStatement(scope.config.reclassDefault);
 
     activate();
 
@@ -85,7 +85,7 @@ function reclass($window, $timeout, ReclassConfig, ReclassUtils) {
      * @returns {Array}
      */
     function getStatements() {
-      return (attrs.reclass) ? sanitizeStatement(attrs.reclass) : scope.config.reclassDefault;
+      return (attrs.reclass) ? normalizeStatement(attrs.reclass) : scope.config.reclassDefault;
     }
 
     /**
@@ -94,7 +94,7 @@ function reclass($window, $timeout, ReclassConfig, ReclassUtils) {
      * @param statement
      * @returns {Array}
      */
-    function sanitizeStatement(statement) {
+    function normalizeStatement(statement) {
       return statement.toLowerCase().replace(/\s+/g, '').split(',');
     }
 
