@@ -173,7 +173,7 @@ function reclass($window, $timeout, ReclassConfig, ReclassUtils) {
      * @returns {String}
      */
     function getClassName(statement) {
-      var statementParts;
+      var statementParts, range;
       if (statement.indexOf('<=') !== -1) {
         statementParts = statement.split('<=');
         if (elementWidth <= parseInt(statementParts[1])) {
@@ -197,6 +197,12 @@ function reclass($window, $timeout, ReclassConfig, ReclassUtils) {
       } else if (statement.indexOf('==') !== -1) {
         statementParts = statement.split('==');
         if (elementWidth === parseInt(statementParts[1])) {
+          return statementParts[0];
+        }
+      } else if (statement.indexOf(':') !== -1) {
+        statementParts = statement.split(':');
+        range = statementParts[1].split('-');
+        if (elementWidth >= parseInt(range[0]) && elementWidth <= parseInt(range[1])) {
           return statementParts[0];
         }
       }
